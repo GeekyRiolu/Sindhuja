@@ -2,8 +2,6 @@ import { Card } from '@/components/ui/card';
 import { ImageIcon, Heart, Camera, Star } from 'lucide-react';
 
 const ChapterTwo = () => {
-  const memoryPlaceholders = Array(6).fill(null);
-
   return (
     <section id="chapter2" className="min-h-screen py-20 px-4">
       <div className="max-w-6xl mx-auto">
@@ -40,45 +38,78 @@ const ChapterTwo = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {memoryPlaceholders.map((_, index) => (
-            <Card 
-              key={index}
-              className="group relative aspect-square bg-gradient-to-br from-white/80 to-romantic-cream-light/80 border-2 border-romantic-pink/20 rounded-3xl overflow-hidden shadow-soft hover:shadow-floating transition-all duration-500 fade-in-up"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center group-hover:scale-105 transition-transform duration-500">
+        {/* Photo Collage Layout */}
+        <div className="relative fade-in-up">
+          <div className="grid grid-cols-6 grid-rows-4 gap-4 h-[600px] md:h-[700px] lg:h-[800px]">
+            {/* Large featured photo - top left */}
+            <Card className="col-span-2 row-span-2 bg-gradient-to-br from-white/80 to-romantic-cream-light/80 border-2 border-romantic-pink/20 rounded-3xl overflow-hidden shadow-soft hover:shadow-floating transition-all duration-500 group">
+              <div className="h-full flex flex-col items-center justify-center p-6 text-center group-hover:scale-105 transition-transform duration-500">
                 <div className="mb-4 p-4 bg-romantic-pink/20 rounded-full shadow-lg group-hover:bg-romantic-pink/30 transition-colors duration-500">
-                  <ImageIcon size={40} className="text-romantic-pink" />
+                  <ImageIcon size={32} className="text-romantic-pink" />
                 </div>
-                
-                <h3 className="text-lg font-semibold text-foreground mb-2">
-                  Memory #{index + 1}
-                </h3>
-                
-                <p className="text-sm text-muted-foreground mb-4 text-center">
-                  A beautiful moment captured in time, waiting to be shared
-                </p>
-                
-                <div className="flex gap-1">
-                  {Array(3).fill(null).map((_, i) => (
-                    <Heart 
-                      key={i} 
-                      size={16} 
-                      className="text-romantic-pink pulse-heart" 
-                      style={{ animationDelay: `${i * 0.2}s` }}
-                    />
-                  ))}
-                </div>
+                <h3 className="text-base font-semibold text-foreground mb-2">Featured Memory</h3>
+                <p className="text-sm text-muted-foreground text-center">Our most special moment</p>
               </div>
-              
-              <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <Star className="text-romantic-blue" size={20} />
-              </div>
-              
-              <div className="absolute inset-0 bg-gradient-to-t from-romantic-pink/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </Card>
-          ))}
+
+            {/* Medium photo - top center */}
+            <Card className="col-span-2 row-span-1 bg-gradient-to-br from-white/80 to-romantic-blue-light/80 border-2 border-romantic-blue/20 rounded-2xl overflow-hidden shadow-soft hover:shadow-floating transition-all duration-500 group">
+              <div className="h-full flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+                <div className="text-center">
+                  <Camera size={24} className="text-romantic-blue mx-auto mb-2" />
+                  <p className="text-sm font-medium text-foreground">Adventure</p>
+                </div>
+              </div>
+            </Card>
+
+            {/* Tall photo - top right */}
+            <Card className="col-span-2 row-span-3 bg-gradient-to-br from-white/80 to-romantic-cream-light/80 border-2 border-romantic-pink/20 rounded-3xl overflow-hidden shadow-soft hover:shadow-floating transition-all duration-500 group">
+              <div className="h-full flex flex-col items-center justify-center p-6 text-center group-hover:scale-105 transition-transform duration-500">
+                <div className="mb-4 p-4 bg-romantic-pink/20 rounded-full shadow-lg group-hover:bg-romantic-pink/30 transition-colors duration-500">
+                  <Heart size={28} className="text-romantic-pink" />
+                </div>
+                <h3 className="text-base font-semibold text-foreground mb-2">Love Story</h3>
+                <p className="text-sm text-muted-foreground text-center">Our beautiful journey</p>
+              </div>
+            </Card>
+
+            {/* Small photo - middle left */}
+            <Card className="col-span-1 row-span-1 bg-gradient-to-br from-white/80 to-romantic-blue-light/80 border-2 border-romantic-blue/20 rounded-2xl overflow-hidden shadow-soft hover:shadow-floating transition-all duration-500 group">
+              <div className="h-full flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+                <Star size={20} className="text-romantic-blue" />
+              </div>
+            </Card>
+
+            {/* Medium photo - middle center */}
+            <Card className="col-span-1 row-span-1 bg-gradient-to-br from-white/80 to-romantic-cream-light/80 border-2 border-romantic-cream/20 rounded-2xl overflow-hidden shadow-soft hover:shadow-floating transition-all duration-500 group">
+              <div className="h-full flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+                <Camera size={20} className="text-romantic-cream" />
+              </div>
+            </Card>
+
+            {/* Wide photo - bottom left */}
+            <Card className="col-span-2 row-span-1 bg-gradient-to-br from-white/80 to-romantic-pink-light/80 border-2 border-romantic-pink/20 rounded-2xl overflow-hidden shadow-soft hover:shadow-floating transition-all duration-500 group">
+              <div className="h-full flex items-center justify-center p-4 group-hover:scale-105 transition-transform duration-500">
+                <div className="text-center">
+                  <ImageIcon size={24} className="text-romantic-pink mx-auto mb-2" />
+                  <p className="text-sm font-medium text-foreground">Memories</p>
+                </div>
+              </div>
+            </Card>
+
+            {/* Small photos - bottom */}
+            <Card className="col-span-1 row-span-1 bg-gradient-to-br from-white/80 to-romantic-blue-light/80 border-2 border-romantic-blue/20 rounded-xl overflow-hidden shadow-soft hover:shadow-floating transition-all duration-500 group">
+              <div className="h-full flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+                <Heart size={18} className="text-romantic-blue pulse-heart" />
+              </div>
+            </Card>
+
+            <Card className="col-span-1 row-span-1 bg-gradient-to-br from-white/80 to-romantic-cream-light/80 border-2 border-romantic-cream/20 rounded-xl overflow-hidden shadow-soft hover:shadow-floating transition-all duration-500 group">
+              <div className="h-full flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+                <Star size={18} className="text-romantic-cream" />
+              </div>
+            </Card>
+          </div>
         </div>
 
         <div className="text-center mt-12 fade-in-up">

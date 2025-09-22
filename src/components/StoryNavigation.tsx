@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Heart, BookOpen, Star, Gift, Sparkles } from 'lucide-react';
+import ConfettiEffect from './ConfettiEffect';
 
 const StoryNavigation = () => {
   const [currentChapter, setCurrentChapter] = useState(0);
+  const [confettiTrigger, setConfettiTrigger] = useState(0);
 
   const chapters = [
     { id: 'intro', title: 'Prologue', icon: BookOpen, description: 'Our story begins...' },
@@ -21,7 +23,10 @@ const StoryNavigation = () => {
         if (section) {
           const { offsetTop, offsetHeight } = section;
           if (scrollY >= offsetTop && scrollY < offsetTop + offsetHeight) {
-            setCurrentChapter(index);
+            if (currentChapter !== index) {
+              setCurrentChapter(index);
+              setConfettiTrigger(prev => prev + 1);
+            }
           }
         }
       });
@@ -35,11 +40,14 @@ const StoryNavigation = () => {
     const element = document.getElementById(chapterId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      setConfettiTrigger(prev => prev + 1);
     }
   };
 
   return (
-    <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-white/80 backdrop-blur-sm border border-romantic-pink/20 rounded-full px-6 py-3 shadow-soft">
+    <>
+      <ConfettiEffect trigger={confettiTrigger} />
+      <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-white/80 backdrop-blur-sm border border-romantic-pink/20 rounded-full px-6 py-3 shadow-soft">
       <div className="flex items-center gap-4">
         {chapters.map((chapter, index) => {
           const Icon = chapter.icon;
@@ -69,7 +77,8 @@ const StoryNavigation = () => {
           );
         })}
       </div>
-    </nav>
+      </nav>
+    </>
   );
 };
 

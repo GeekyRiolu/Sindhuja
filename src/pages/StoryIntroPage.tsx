@@ -4,8 +4,6 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import ConfettiEffect from '@/components/ConfettiEffect';
 import BalloonEffect from '@/components/BalloonEffect';
-import bgImg from '../assets/WhatsApp Image 2025-09-23 at 18.57.53_7e23cd17.jpg';
-import musicSrc from '../assets/you-belong-with-me.mp3';
 
 
 const StoryIntroPage = () => {
@@ -70,7 +68,7 @@ const StoryIntroPage = () => {
     <div
       className="min-h-screen flex items-center justify-center px-4 py-20"
       style={{
-        backgroundImage: `url(${bgImg})`,
+        backgroundImage: "url('src/assets/WhatsApp Image 2025-09-23 at 18.57.53_7e23cd17.jpg')",
         backgroundSize: 'contain',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
@@ -80,13 +78,6 @@ const StoryIntroPage = () => {
       }}
     >
       {/* Audio player for intro song */}
-      <audio
-        src={musicSrc}
-        autoPlay
-        loop
-        controls={false}
-        style={{ display: 'none' }}
-      />
       <audio
         src={"/assets/Love-Story.mp3"}
         autoPlay

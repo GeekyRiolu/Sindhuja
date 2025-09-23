@@ -5,8 +5,6 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import ConfettiEffect from '@/components/ConfettiEffect';
 import BalloonEffect from '@/components/BalloonEffect';
-import bgImg from '../assets/IMG-20250923-WA0006.jpg';
-import musicSrc from '../assets/maye-you.mp3';
 
 const EpiloguePage = () => {
   const [effectTrigger, setEffectTrigger] = useState(0);
@@ -30,7 +28,7 @@ const EpiloguePage = () => {
     <div
       className="min-h-screen py-20 px-4 flex items-center"
       style={{
-        backgroundImage: `url(${bgImg})`,
+        backgroundImage: "url('/assets/IMG-20250923-WA0006.jpg')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
@@ -38,7 +36,7 @@ const EpiloguePage = () => {
     >
       {/* Epilogue background music */}
       <audio
-        src={musicSrc}
+        src="assets/maye-you.mp3"
         autoPlay
         loop
         controls={false}

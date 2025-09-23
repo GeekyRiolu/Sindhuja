@@ -2,21 +2,54 @@ import { Card } from '@/components/ui/card';
 import { Calendar, MapPin, Clock, Star, ArrowRight, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ConfettiEffect from '@/components/ConfettiEffect';
+import BalloonEffect from '@/components/BalloonEffect';
 
 const ChapterOnePage = () => {
-  const [confettiTrigger, setConfettiTrigger] = useState(0);
+  // Play invisible-string.mp3 as background music
+  // Only one audio element per page for background music
+  const [effectTrigger, setEffectTrigger] = useState(0);
+  const [showConfetti, setShowConfetti] = useState(true);
+
+  useEffect(() => {
+    const lastEffect = localStorage.getItem('lastEffect') || 'confetti';
+    setShowConfetti(lastEffect === 'confetti');
+    setEffectTrigger(prev => prev + 1);
+  }, []);
 
   const handleNavigation = () => {
-    setConfettiTrigger(prev => prev + 1);
+    const lastEffect = localStorage.getItem('lastEffect') || 'confetti';
+    const nextEffect = lastEffect === 'confetti' ? 'balloon' : 'confetti';
+    localStorage.setItem('lastEffect', nextEffect);
+    setShowConfetti(nextEffect === 'confetti');
+    setEffectTrigger(prev => prev + 1);
   };
 
   return (
-    <div className="min-h-screen py-20 px-4 bg-gradient-to-b from-background via-romantic-cream-light/30 to-background">
-      <ConfettiEffect trigger={confettiTrigger} />
-      
-      <div className="max-w-6xl mx-auto">
+    <div
+      className="min-h-screen py-20 px-4"
+      style={{
+        backgroundImage: "url('src/assets/Gemini_Generated_Image_uq5c8quq5c8quq5c.png')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
+        {/* Invisible String background music */}
+        <audio
+          src={"/assets/invisible-string.mp3"}
+          autoPlay
+          loop
+          controls={false}
+          style={{ display: 'none' }}
+        />
+      {showConfetti ? (
+        <ConfettiEffect trigger={effectTrigger} />
+      ) : (
+        <BalloonEffect trigger={effectTrigger} />
+      )}
+  <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16 fade-in-up">
           <div className="inline-flex items-center gap-2 bg-romantic-pink/10 text-romantic-pink px-4 py-2 rounded-full text-sm font-medium mb-4">
             <Star size={16} />
@@ -32,15 +65,15 @@ const ChapterOnePage = () => {
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="fade-in-up">
-            <Card className="bg-gradient-to-br from-white/80 to-romantic-cream-light/80 backdrop-blur-sm border-2 border-romantic-pink/20 rounded-3xl p-8 shadow-dreamy">
+            <Card className="bg-romantic-pink/60 backdrop-blur-lg border border-romantic-pink/30 rounded-3xl p-8 shadow-xl text-black transition-colors duration-300 hover:bg-romantic-pink/80">
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
                   <div className="p-3 bg-romantic-pink/20 rounded-full">
                     <Calendar className="text-romantic-pink" size={24} />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground">The Special Date</h3>
-                    <p className="text-muted-foreground">A day that changed everything</p>
+                    <h3 className="font-semibold text-foreground">The Special Date: 24 September</h3>
+                    <p className="text-black font-semibold">A day that changed everything</p>
                   </div>
                 </div>
 
@@ -50,7 +83,7 @@ const ChapterOnePage = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground">Perfect Timing</h3>
-                    <p className="text-muted-foreground">When miracles happen</p>
+                    <p className="text-black font-semibold">I don't know if it was fate or just perfect timing, but my life truly began the day I met you</p>
                   </div>
                 </div>
 
@@ -60,7 +93,9 @@ const ChapterOnePage = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground">Where Dreams Begin</h3>
-                    <p className="text-muted-foreground">The place that welcomed an angel</p>
+                    <p className="text-black font-semibold">
+                      With you, I stopped wishing for dreams to come true, because my reality is now more beautiful than any dream I could ever imagine
+                    </p>
                   </div>
                 </div>
               </div>
@@ -68,23 +103,24 @@ const ChapterOnePage = () => {
           </div>
 
           <div className="space-y-8 fade-in-delayed">
-            <div className="bg-gradient-to-br from-romantic-pink/10 to-romantic-blue/10 rounded-3xl p-8 border border-romantic-pink/20">
-              <h3 className="text-2xl font-bold text-romantic-pink mb-4">
+            <div className="bg-romantic-pink/60 backdrop-blur-lg border border-romantic-pink/30 rounded-3xl p-8 shadow-xl text-black">
+              <h3 className="text-2xl font-bold text-white mb-4">
                 "And then there was you..."
               </h3>
-              <p className="text-lg text-foreground leading-relaxed">
-                On this very day, years ago, the world became infinitely more beautiful. 
-                The stars aligned, the angels sang, and the most precious soul was born.
+              <p className="text-lg text-black font-semibold leading-relaxed">
+                Most precious thing that I hold against the whole world... for your family you're Anni, for your friends you're Sindhuja
+                and I don't know how the world sees you but you're the most beautiful soul helping other while you're in the need of help
+                itself, for me you're just everything... you're my whole world, you will always that "piddi ldki" who has forgiven each & every mistake
+                of mine doesn't matter how many times I have repeated those mistakes.
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-romantic-blue/10 to-romantic-cream/10 rounded-3xl p-8 border border-romantic-blue/20">
-              <h3 className="text-2xl font-bold text-romantic-blue mb-4">
-                A Story of Light
+            <div className="bg-romantic-pink/60 backdrop-blur-lg border border-romantic-pink/30 rounded-3xl p-8 shadow-xl text-black transition-colors duration-300 hover:bg-romantic-pink/80">
+              <h3 className="text-2xl font-bold text-white mb-4">
+                Careless Dumbo...
               </h3>
-              <p className="text-lg text-foreground leading-relaxed">
-                From that moment forward, you've been painting the world with your smile, 
-                filling hearts with joy, and making every day brighter just by being you.
+              <p className="text-lg text-black font-semibold leading-relaxed">
+                Yes, you're my careless dumbo. The one who bumps into doorways and forgets the little things. But I think it's because your heart is too busy being kind, your mind too full of dreams, to worry about the small stuff. I wouldn't trade your beautiful, forgetful, clumsy self for anything. You may be careless with things, but you have carefully and completely stolen my heart.
               </p>
             </div>
           </div>
@@ -108,7 +144,7 @@ const ChapterOnePage = () => {
             <Button 
               onClick={handleNavigation}
               size="lg" 
-              className="bg-romantic-pink hover:bg-romantic-pink/90 text-white font-semibold px-8 py-3 rounded-full shadow-floating transition-all duration-500 hover:scale-105"
+              className="bg-romantic-pink hover:bg-romantic-pink/90 text-black font-semibold px-8 py-3 rounded-full shadow-floating transition-all duration-500 hover:scale-105"
             >
               Our Memories
               <ArrowRight className="ml-2" size={20} />

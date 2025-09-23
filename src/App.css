@@ -1,3 +1,40 @@
+
+.falling-flower {
+  position: absolute;
+  top: -60px;
+  opacity: 0.95;
+  animation: flower-fall 3.5s cubic-bezier(.4,.8,.6,1) forwards;
+}
+
+@keyframes flower-fall {
+  0% { transform: translateY(0) scale(1) rotate(0deg); opacity: 0.95; }
+  80% { opacity: 1; }
+  100% { transform: translateY(100vh) scale(1.1) rotate(360deg); opacity: 0; }
+}
+
+.page-bg {
+  background-image: url('/assets/balloons.png'), url('/assets/confetti.png'), url('/assets/hearts.png');
+  background-size: cover, contain, contain;
+  background-position: center, top right, bottom left;
+  background-repeat: no-repeat;
+}
+
+.balloon {
+  position: absolute;
+  bottom: -60px;
+  width: 32px;
+  height: 48px;
+  border-radius: 16px 16px 16px 16px / 24px 24px 32px 32px;
+  opacity: 0.85;
+  animation: balloon-float 3.5s cubic-bezier(.4,.8,.6,1) forwards;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+@keyframes balloon-float {
+  0% { transform: translateY(0) scale(1); opacity: 0.85; }
+  80% { opacity: 1; }
+  100% { transform: translateY(-100vh) scale(1.1); opacity: 0; }
+}
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -37,6 +74,24 @@
   padding: 2em;
 }
 
+
 .read-the-docs {
   color: #888;
+}
+
+/* Balloon Effect Styles */
+.balloon {
+  position: absolute;
+  bottom: -60px;
+  width: 32px;
+  height: 48px;
+  border-radius: 16px 16px 16px 16px / 24px 24px 32px 32px;
+  opacity: 0.85;
+  animation: balloon-float 2.5s cubic-bezier(.4,.8,.6,1) forwards;
+}
+
+@keyframes balloon-float {
+  0% { transform: translateY(0) scale(1); opacity: 0.85; }
+  80% { opacity: 1; }
+  100% { transform: translateY(-100vh) scale(1.1); opacity: 0; }
 }

@@ -2,14 +2,26 @@ import { Card } from '@/components/ui/card';
 import { Cake, Gift, Music, Flower, Sparkles, Heart, ArrowRight, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ConfettiEffect from '@/components/ConfettiEffect';
+import BalloonEffect from '@/components/BalloonEffect';
 
 const ChapterThreePage = () => {
-  const [confettiTrigger, setConfettiTrigger] = useState(0);
+  const [effectTrigger, setEffectTrigger] = useState(0);
+  const [showConfetti, setShowConfetti] = useState(true);
+
+  useEffect(() => {
+    const lastEffect = localStorage.getItem('lastEffect') || 'confetti';
+    setShowConfetti(lastEffect === 'confetti');
+    setEffectTrigger(prev => prev + 1);
+  }, []);
 
   const handleNavigation = () => {
-    setConfettiTrigger(prev => prev + 1);
+    const lastEffect = localStorage.getItem('lastEffect') || 'confetti';
+    const nextEffect = lastEffect === 'confetti' ? 'balloon' : 'confetti';
+    localStorage.setItem('lastEffect', nextEffect);
+    setShowConfetti(nextEffect === 'confetti');
+    setEffectTrigger(prev => prev + 1);
   };
 
   const wishes = [
@@ -40,9 +52,20 @@ const ChapterThreePage = () => {
   ];
 
   return (
-    <div className="min-h-screen py-20 px-4 bg-gradient-to-b from-background via-romantic-cream-light/30 to-background">
-      <ConfettiEffect trigger={confettiTrigger} />
-      
+    <div
+      className="min-h-screen py-20 px-4"
+      style={{
+        backgroundImage: "url('src/assets/Gemini_Generated_Image_m6d9qmm6d9qmm6d9.png')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
+      {showConfetti ? (
+        <ConfettiEffect trigger={effectTrigger} />
+      ) : (
+        <BalloonEffect trigger={effectTrigger} />
+      )}
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16 fade-in-up">
           <div className="inline-flex items-center gap-2 bg-romantic-cream/10 text-romantic-cream px-4 py-2 rounded-full text-sm font-medium mb-4">
@@ -122,9 +145,7 @@ const ChapterThreePage = () => {
             </div>
             
             <p className="text-xl text-foreground leading-relaxed max-w-3xl mx-auto mb-6">
-              Beyond all the gifts, beyond all the celebrations, my greatest wish is simple: 
-              to see your beautiful smile every day, to hold your hand through every adventure, 
-              and to love you more deeply with each passing year.
+              My ultimate wish has nothing to do with gifts or grand celebrations. It's for a future filled with our perfectly imperfect moments. It’s for thousands more of our inside jokes, for laughing until we cry over something silly, and for the quiet comfort of just being in the same room. My wish is for a lifetime of the small, simple things with you... because with you, they feel like everything.
             </p>
 
             <div className="flex justify-center gap-2">

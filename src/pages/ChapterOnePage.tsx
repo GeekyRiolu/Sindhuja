@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import ConfettiEffect from '@/components/ConfettiEffect';
 import BalloonEffect from '@/components/BalloonEffect';
+import bgImg from '../assets/Gemini_Generated_Image_m6d9qmm6d9qmm6d9.png';
+import musicSrc from '../assets/invisible-string.mp3';
 
 const ChapterOnePage = () => {
   // Play invisible-string.mp3 as background music
@@ -30,7 +32,7 @@ const ChapterOnePage = () => {
     <div
       className="min-h-screen py-20 px-4"
       style={{
-        backgroundImage: "url('src/assets/Gemini_Generated_Image_m6d9qmm6d9qmm6d9.png')",
+        backgroundImage: `url(${bgImg})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
@@ -38,7 +40,7 @@ const ChapterOnePage = () => {
     >
         {/* Invisible String background music */}
         <audio
-          src={"src/assets/invisible-string.mp3"}
+          src={musicSrc}
           autoPlay
           loop
           controls={false}

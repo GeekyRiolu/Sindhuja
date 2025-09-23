@@ -5,6 +5,15 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import ConfettiEffect from '@/components/ConfettiEffect';
 import BalloonEffect from '@/components/BalloonEffect';
+import bgImg from '../assets/WhatsApp Image 2025-09-23 at 22.43.50_826d0a06.jpg';
+import musicSrc from '../assets/you-belong-with-me.mp3';
+import img1 from '../assets/WhatsApp Image 2025-09-23 at 22.52.56_07e72197.jpg';
+import img2 from '../assets/WhatsApp Image 2025-09-23 at 22.53.15_3bd408fd.jpg';
+import img3 from '../assets/IMG-20250923-WA0005.jpg';
+import img4 from '../assets/IMG-20250923-WA0006.jpg';
+import img5 from '../assets/IMG-20250923-WA0007.jpg';
+import img6 from '../assets/IMG-20250923-WA0008.jpg';
+import img7 from '../assets/IMG-20250923-WA0009.jpg';
 
 const ChapterTwoPage = () => {
   const [effectTrigger, setEffectTrigger] = useState(0);
@@ -28,7 +37,7 @@ const ChapterTwoPage = () => {
     <div
       className="min-h-screen py-20 px-4"
       style={{
-        backgroundImage: "url('src/assets/WhatsApp Image 2025-09-23 at 22.43.50_826d0a06.jpg')",
+        backgroundImage: `url(${bgImg})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
@@ -36,7 +45,7 @@ const ChapterTwoPage = () => {
     >
       {/* Background music: You Belong With Me */}
       <audio
-        src="src/assets/you-belong-with-me.mp3"
+        src={musicSrc}
         autoPlay
         loop
         controls={false}
@@ -85,26 +94,26 @@ const ChapterTwoPage = () => {
         <div className="relative fade-in-up">
           <div className="grid grid-cols-6 grid-rows-4 gap-4 h-[600px] md:h-[700px] lg:h-[800px]">
             <Card className="col-span-2 row-span-1 overflow-hidden rounded-2xl shadow-soft hover:shadow-floating transition-all duration-500 group">
-              <img src="src/assets/WhatsApp Image 2025-09-23 at 22.52.56_07e72197.jpg" alt="Memory 6" className="object-cover w-full h-full" />
+              <img src={img1} alt="Memory 6" className="object-cover w-full h-full" />
             </Card>
             <Card className="col-span-2 row-span-1 overflow-hidden rounded-2xl shadow-soft hover:shadow-floating transition-all duration-500 group">
-              <img src="src/assets/WhatsApp Image 2025-09-23 at 22.53.15_3bd408fd.jpg" alt="Memory 7" className="object-cover w-full h-full" />
+              <img src={img2} alt="Memory 7" className="object-cover w-full h-full" />
             </Card>
             {/* Collage with real images */}
             <Card className="col-span-2 row-span-2 overflow-hidden rounded-3xl shadow-soft hover:shadow-floating transition-all duration-500 group">
-              <img src="src/assets/IMG-20250923-WA0005.jpg" alt="Memory 1" className="object-cover w-full h-full" />
+              <img src={img3} alt="Memory 1" className="object-cover w-full h-full" />
             </Card>
             <Card className="col-span-2 row-span-1 overflow-hidden rounded-2xl shadow-soft hover:shadow-floating transition-all duration-500 group">
-              <img src="src/assets/IMG-20250923-WA0006.jpg" alt="Memory 2" className="object-cover w-full h-full" />
+              <img src={img4} alt="Memory 2" className="object-cover w-full h-full" />
             </Card>
             <Card className="col-span-2 row-span-3 overflow-hidden rounded-3xl shadow-soft hover:shadow-floating transition-all duration-500 group">
-              <img src="src/assets/IMG-20250923-WA0007.jpg" alt="Memory 3" className="object-cover w-full h-full" />
+              <img src={img5} alt="Memory 3" className="object-cover w-full h-full" />
             </Card>
             <Card className="col-span-1 row-span-1 overflow-hidden rounded-2xl shadow-soft hover:shadow-floating transition-all duration-500 group">
-              <img src="src/assets/IMG-20250923-WA0008.jpg" alt="Memory 4" className="object-cover w-full h-full" />
+              <img src={img6} alt="Memory 4" className="object-cover w-full h-full" />
             </Card>
             <Card className="col-span-1 row-span-1 overflow-hidden rounded-2xl shadow-soft hover:shadow-floating transition-all duration-500 group">
-              <img src="src/assets/IMG-20250923-WA0009.jpg" alt="Memory 5" className="object-cover w-full h-full" />
+              <img src={img7} alt="Memory 5" className="object-cover w-full h-full" />
             </Card>
           </div>
         </div>

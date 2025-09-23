@@ -38,7 +38,7 @@ const ChapterOnePage = () => {
     >
         {/* Invisible String background music */}
         <audio
-          src={"/assets/invisible-string.mp3"}
+          src={"src/assets/invisible-string.mp3"}
           autoPlay
           loop
           controls={false}

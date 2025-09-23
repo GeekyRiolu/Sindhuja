@@ -27,7 +27,12 @@ const ChapterTwoPage = () => {
   return (
     <div
       className="min-h-screen py-20 px-4"
-      style={{ background: 'rgba(255, 182, 193, 0.35)' }}
+      style={{
+        backgroundImage: "url('/assets/WhatsApp Image 2025-09-23 at 22.43.50_826d0a06.jpg')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
     >
       {/* Background music: You Belong With Me */}
       <audio
@@ -48,7 +53,7 @@ const ChapterTwoPage = () => {
             <Camera size={16} />
             Chapter II
           </div>
-          <h2 className="text-4xl md:text-6xl font-bold mb-6 text-foreground">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white">
             Our Beautiful Memories
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -56,7 +61,7 @@ const ChapterTwoPage = () => {
           </p>
         </div>
 
-        <div className="bg-gradient-to-br from-white/50 to-romantic-cream-light/50 backdrop-blur-sm rounded-3xl p-8 mb-12 border border-romantic-pink/20">
+        <div className="bg-black/70 backdrop-blur-lg rounded-3xl p-8 mb-12 border border-romantic-pink/20">
           <div className="text-center mb-8">
             <h3 className="text-2xl font-bold text-romantic-pink mb-4">
               // Loading Memory Archive...
@@ -70,7 +75,7 @@ const ChapterTwoPage = () => {
                 />
               ))}
             </div>
-            <p className="text-muted-foreground">
+            <p className="text-white">
               Retrieving the most precious moments of our journey together...
             </p>
           </div>
@@ -105,7 +110,7 @@ const ChapterTwoPage = () => {
         </div>
 
           {/* Glassmorphism story section */}
-          <div className="bg-gradient-to-r from-white/40 via-white/30 to-white/40 backdrop-blur-lg rounded-3xl p-8 border border-white/20 shadow-xl text-black transition-colors duration-300 hover:bg-white/70 mt-12">
+          <div className="bg-gradient-to-r from-white/40 via-white/30 to-white/40 backdrop-blur-lg rounded-3xl p-8 border border-white/20 shadow-xl text-black mt-12">
             <h3 className="text-2xl content-center font-bold text-romantic-pink mb-4">
               "Each photo tells our story..."
             </h3>

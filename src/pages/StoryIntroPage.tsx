@@ -68,7 +68,7 @@ const StoryIntroPage = () => {
     <div
       className="min-h-screen flex items-center justify-center px-4 py-20"
       style={{
-        backgroundImage: "url('src/assets/WhatsApp Image 2025-09-23 at 18.57.53_7e23cd17.jpg')",
+        backgroundImage: "url('/assets/WhatsApp Image 2025-09-23 at 18.57.53_7e23cd17.jpg')",
         backgroundSize: 'contain',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',

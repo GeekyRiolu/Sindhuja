@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import StoryIntroPage from "./pages/StoryIntroPage";
+import LightUpPage from "./pages/LightUpPage";
 import ChapterOnePage from "./pages/ChapterOnePage";
 import ChapterTwoPage from "./pages/ChapterTwoPage";
 import ChapterThreePage from "./pages/ChapterThreePage";
@@ -29,7 +30,8 @@ const App = () => (
       <BrowserRouter>
         <ScrollToTop />
         <Routes>
-          <Route path="/" element={<StoryIntroPage />} />
+          <Route path="/" element={<LightUpPage />} />
+          <Route path="/intro" element={<StoryIntroPage />} />
           <Route path="/chapter-one" element={<ChapterOnePage />} />
           <Route path="/chapter-two" element={<ChapterTwoPage />} />
           <Route path="/chapter-three" element={<ChapterThreePage />} />

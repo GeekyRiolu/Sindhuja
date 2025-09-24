@@ -76,7 +76,7 @@ const ChapterTwoPage = () => {
               ))}
             </div>
             <p className="text-white">
-              Retrieving the most precious moments of our journey together...
+              Retrieving the my most recent memories... Thank you for getting me to my first concert 🥰
             </p>
           </div>
         </div>

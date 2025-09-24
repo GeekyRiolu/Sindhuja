@@ -111,8 +111,8 @@ const ChapterTwoPage = () => {
 
           {/* Glassmorphism story section */}
           <div className="bg-gradient-to-r from-white/40 via-white/30 to-white/40 backdrop-blur-lg rounded-3xl p-8 border border-white/20 shadow-xl text-black mt-12">
-            <h3 className="text-2xl content-center font-bold text-romantic-pink mb-4">
-              "Each photo tells our story..."
+            <h3 className="text-2xl font-bold text-romantic-pink mb-4 text-center">
+              "It's you always has been you..."
             </h3>
             <p className="text-lg text-black font-semibold leading-relaxed max-w-2xl mx-auto">
               I know I don't have the old photos of us being together the time we spent together but they're present with me always in my part of a brain where we loved going out randomly, just didn't give a fuck abt anyone else arnd moving around while it rains being playful, but things that I still have I hold them very much against my heart...🥰 

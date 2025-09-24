@@ -30,7 +30,7 @@ const ChapterOnePage = () => {
     <div
       className="min-h-screen py-20 px-4"
       style={{
-        backgroundImage: "url('src/assets/Gemini_Generated_Image_uq5c8quq5c8quq5c.png')",
+        backgroundImage: "url('/assets/Gemini_Generated_Image_uq5c8quq5c8quq5c.png')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
